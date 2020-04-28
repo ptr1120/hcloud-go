@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/hetznercloud/hcloud-go/hcloud"
+	"github.com/ptr1120/hcloud-go/hcloud"
 )
 
 func Example() {

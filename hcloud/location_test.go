@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/hetznercloud/hcloud-go/hcloud/schema"
+	"github.com/ptr1120/hcloud-go/hcloud/schema"
 )
 
 func TestLocationClient(t *testing.T) {

@@ -6,7 +6,7 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/hetznercloud/hcloud-go/hcloud/schema"
+	"github.com/ptr1120/hcloud-go/hcloud/schema"
 )
 
 // Action represents an action in the Hetzner Cloud.

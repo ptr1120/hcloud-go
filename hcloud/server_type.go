@@ -6,7 +6,7 @@ import (
 	"net/url"
 	"strconv"
 
-	"github.com/hetznercloud/hcloud-go/hcloud/schema"
+	"github.com/ptr1120/hcloud-go/hcloud/schema"
 )
 
 // ServerType represents a server type in the Hetzner Cloud.

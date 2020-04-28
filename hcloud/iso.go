@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/hetznercloud/hcloud-go/hcloud/schema"
+	"github.com/ptr1120/hcloud-go/hcloud/schema"
 )
 
 // ISO represents an ISO image in the Hetzner Cloud.

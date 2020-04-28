@@ -1,3 +1,3 @@
-module github.com/hetznercloud/hcloud-go
+module github.com/ptr1120/hcloud-go
 
 go 1.14

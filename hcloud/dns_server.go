@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
-	"github.com/hetznercloud/hcloud-go/hcloud/schema"
+	"github.com/ptr1120/hcloud-go/hcloud/schema"
 	"io"
 	"net/http"
 	"net/url"
