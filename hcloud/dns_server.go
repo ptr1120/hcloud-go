@@ -12,7 +12,7 @@ import (
 	"time"
 )
 
-// DNSEndpoint is the base URL of the DNS server API.
+// DNSEndpoint is the base URL of the DNS server API. Doc: https://dns.hetzner.com/api-docs/
 const DNSEndpoint = "https://dns.hetzner.com/api/v1"
 
 // RecordType represents an record's type.
@@ -146,6 +146,7 @@ type ZoneListOpts struct {
 	Page       int     // Page (starting at 1)
 	PerPage    int     // Items per page (0 means default)
 	SearchName *string // Partial name of a zone. Will return all zones that contain the searched string (nul means default)
+	Name       *string // Full name of a zone. Will return an array with one or no results
 }
 
 func (l RecordListOpts) values() url.Values {
@@ -169,6 +170,9 @@ func (l ZoneListOpts) values() url.Values {
 	}
 	if l.SearchName != nil {
 		vals.Add("search_name", *l.SearchName)
+	}
+	if l.Name != nil {
+		vals.Add("name", *l.Name)
 	}
 	return vals
 }
