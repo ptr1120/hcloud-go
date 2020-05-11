@@ -1,40 +1,35 @@
 package schema
 
-import (
-	"strings"
-	"time"
-)
-
-type specialTime struct {
-	time.Time
-}
-
-// UnmarshalJSON converts a specialTime.
-func (st *specialTime) UnmarshalJSON(b []byte) error {
-	// todo: Currently dns-api doest not support Iso date-time formats. Additionally: different time formats are delivered. And time.Parse in golang is not very smart.
-	// Possible values: "2020-04-19 13:03:28.975 +0000 UTC" , "2020-04-19T13:03:30Z" => time.RFC3339Nano
-	input := string(b)
-	input = strings.Trim(input, `"`)
-	input = strings.Replace(input, " +0000 UTC", "Z", -1)
-	input = strings.Replace(input, " ", "T", -1)
-	t, err := time.Parse(time.RFC3339Nano, input)
-	if err != nil {
-		return err
-	}
-	st.Time = t
-	return nil
-}
+//type specialTime struct {
+//	time.Time
+//}
+//
+//// UnmarshalJSON converts a specialTime.
+//func (st *specialTime) UnmarshalJSON(b []byte) error {
+//	// todo: Currently dns-api doest not support Iso date-time formats. Additionally: different time formats are delivered. And time.Parse in golang is not very smart.
+//	// Possible values: "2020-04-19 13:03:28.975 +0000 UTC" , "2020-04-19T13:03:30Z" => time.RFC3339Nano
+//	input := string(b)
+//	input = strings.Trim(input, `"`)
+//	input = strings.Replace(input, " +0000 UTC", "Z", -1)
+//	input = strings.Replace(input, " ", "T", -1)
+//	t, err := time.Parse(time.RFC3339Nano, input)
+//	if err != nil {
+//		return err
+//	}
+//	st.Time = t
+//	return nil
+//}
 
 // Record defines the schema of a Dns server record.
 type Record struct {
-	ID       string      `json:"id"`
-	Name     string      `json:"name"`
-	Created  specialTime `json:"created"`
-	Modified specialTime `json:"modified"`
-	TTL      uint64      `json:"ttl"`
-	Type     string      `json:"type"`
-	Value    string      `json:"value"`
-	ZoneID   string      `json:"zone_id"`
+	ID       string `json:"id"`
+	Name     string `json:"name"`
+	Created  string `json:"created"`
+	Modified string `json:"modified"`
+	TTL      uint64 `json:"ttl"`
+	Type     string `json:"type"`
+	Value    string `json:"value"`
+	ZoneID   string `json:"zone_id"`
 }
 
 // RecordResponse defines the schema of a Dns server record response.
@@ -105,9 +100,9 @@ type Zone struct {
 	Ns              []string        `json:"ns"`
 	LegacyDNSHost   string          `json:"legacy_dns_host"`
 	LegacyNs        []string        `json:"legacy_ns"`
-	Created         specialTime     `json:"created"`
-	Modified        specialTime     `json:"modified"`
-	Verified        specialTime     `json:"verified"`
+	Created         string          `json:"created"`
+	Modified        string          `json:"modified"`
+	Verified        string          `json:"verified"`
 	Owner           string          `json:"owner"`
 	Paused          bool            `json:"paused"`
 	Permission      string          `json:"permission"`

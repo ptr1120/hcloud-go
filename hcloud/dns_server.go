@@ -9,7 +9,6 @@ import (
 	"net/http"
 	"net/url"
 	"strconv"
-	"time"
 )
 
 // DNSEndpoint is the base URL of the DNS server API. Doc: https://dns.hetzner.com/api-docs/
@@ -53,8 +52,8 @@ const (
 type Record struct {
 	ID       string
 	Name     string
-	Created  time.Time
-	Modified time.Time
+	Created  string
+	Modified string
 	TTL      uint64
 	Type     RecordType
 	Value    string
@@ -77,9 +76,9 @@ type Zone struct {
 	Ns              []string
 	LegacyDNSHost   string
 	LegacyNs        []string
-	Created         time.Time
-	Modified        time.Time
-	Verified        time.Time
+	Created         string
+	Modified        string
+	Verified        string
 	Owner           string
 	Paused          bool
 	Permission      string
